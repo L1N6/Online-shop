@@ -1,8 +1,8 @@
 ﻿USE [master]
 GO
-CREATE DATABASE [SHOP_DB_TEST_8]
+CREATE DATABASE [SHOP_DB_Test_5]
 GO
-USE [SHOP_DB_TEST_8]
+USE [SHOP_DB_Test_5]
 GO
 CREATE TABLE [dbo].[Employees](
 	[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
@@ -82,13 +82,13 @@ GO
 	)
 
 GO
-INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('APPLE','apple_318-631468.avif')
-INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('SAMSUNG','images.png')
-INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('OPPO','oppologo.png')
+INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('APPLE','Apple.png')
+INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('SAMSUNG','ss.jpg')
+INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('OPPO','logo-oppo-1.jpg')
 INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('VIVO','vivo.png')
-INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('XIAOMI','xiaomi.png')
+INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('XIAOMI','Xiaomi.png')
 INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('REALME','realme.png')
-INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('NOKIA','nokia.jpg')
+INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('MOBELL','mobell.png')
 INSERT [dbo].[Brands] ( [BrandName], [Picture]) VALUES ('ITEL','itel.png')
 GO
 
@@ -169,11 +169,15 @@ INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[Operatin
 INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Realme 8',6, N'MediaTek Helio G95',4,N'4500 mAh,60 W',N'Android 12',N'Super AMOLED6.4"Full HD+','realme-8-silver-600x600.jpg')
 INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Realme 10	',6, N'MediaTek Helio G99',4,N'5000 mAh,33 W',N'Android 12',N'Super AMOLED6.4"Full HD+','realme-10-thumb-1-600x600.jpg')
 INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Realme 9',6, N'Snapdragon 680',4,N'4500 mAh,60 W',N'Android 12',N'Super AMOLED6.4"Full HD+','realme-9-4g-den-thumb-600x600.jpg')
---brand7 NOKIA
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Nokia G21',7, N'Unisoc T606',4,N'5050 mAh,18 W',N'Android 12',N'TFT LCD6.5"HD+','nokia-g21-xanh-thumb-600x600.jpg')
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Nokia G11',7, N'Unisoc T606',4,N'5050 mAh,18 W',N'Android 11',N'TFT LCD6.5"HD+','Nokia-g11-xám-thumb-600x600.jpg')
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Nokia C21 Plus',7, N'Unisoc T606',3,N'5050 mAh,18 W',N'Android 12',N'TFT LCD6.5"HD+','Nokia-C21-Plus-Gray-600x600.jpg')
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Nokia C31',7, N'Unisoc T606',3,N'5050 mAh,18 W',N'Android 12',N'TFT LCD6.5"HD+','Nokia-C31-Green-thumb-600x600.jpg')
+--brand7 MOBELL
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Mobell G21',7, N'Unisoc T606',4,N'5050 mAh,18 W',N'Android 12',N'TFT LCD6.5"HD+','mobell-rock-4-xanh-duong-thumb-600x600.jpg')
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Mobell G11',7, N'Unisoc T606',4,N'5050 mAh,18 W',N'Android 11',N'TFT LCD6.5"HD+','mobell-m539-do-thumb-600x600.jpg')
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Mobell C21 Plus',7, N'Unisoc T606',3,N'5050 mAh,18 W',N'Android 12',N'TFT LCD6.5"HD+','mobell-f209-den-thumb-600x600.jpg')
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Mobell C31',7, N'Unisoc T606',3,N'5050 mAh,18 W',N'Android 12',N'TFT LCD6.5"HD+','mobell-m239-do-thumb-1-600x600.jpgg')
+--brand8 ITEL
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Itel L6502',8, N'Spreadtrum SC9832E',3,N'4000 mAh,5 W',N'Android 10',N'IPS LCD6.52"HD+','itel-l6502-den-600x600.jpg')
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES (N'Itel L6006',8, N'Spreadtrum SC9832E',2,N'3000 mAh,5 W',N'Android 10',N'IPS LCD6.52"HD+','itel-l6006-violet-600x600.jpg')
+
 GO
 
 CREATE TABLE [dbo].[ProductStorages](
@@ -250,15 +254,31 @@ CREATE TABLE [dbo].[SalesDuring](
 )
 GO
 INSERT [dbo].[SalesDuring] (  StartSale, EndSale) VALUES (CAST(N'2023-01-25T00:00:00.000' AS DateTime),CAST(N'2023-02-01T00:00:00.000' AS DateTime))
+INSERT [dbo].[SalesDuring] (  StartSale, EndSale) VALUES (CAST(N'2023-02-01T00:00:00.000' AS DateTime),CAST(N'2023-02-20T00:00:00.000' AS DateTime))
+
 GO
 CREATE TABLE [dbo].[Discounts](
-	ProductID[int] FOREIGN KEY REFERENCES Products([ProductID]) NOT NULL,
+	DiscountID[int] IDENTITY(1,1) NOT NULL,
+	[ProductID] [int] FOREIGN KEY REFERENCES Products([ProductID]) NOT NULL,
 	SaleID[int] FOREIGN KEY REFERENCES [SalesDuring]([SaleID]) NOT NULL,
 	Discount[real] NOT NULL,
-	DiscountID[int] IDENTITY(1,1) NOT NULL
+	
 
 	PRIMARY KEY ([DiscountID])
 )
+GO
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (1,2,0.2)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (1,1,0.1)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (1,2,0.2)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (14,2,0.15)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (9,2,0.21)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (20,2,0.05)
+
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (11,2,0.02)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (22,2,0.2)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (21,2,0.15)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (26,2,0.25)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (17,2,0.05)
 GO
 CREATE TABLE [dbo].[OrderDetails](
 	OrderDetailID [int] IDENTITY(1,1) NOT NULL,
@@ -282,8 +302,9 @@ CREATE TABLE [dbo].[Cart](
 )
 GO
 CREATE TABLE [dbo].[Comment](
-	AccountID[int] FOREIGN KEY REFERENCES Accounts([AccountID]) NOT NULL,
 	CommentID[int] IDENTITY(1,1) NOT NULL,
+	AccountID[int] FOREIGN KEY REFERENCES Accounts([AccountID]) NOT NULL,
+	
 	Rate[int] NULL,
 	ProductID[int] FOREIGN KEY REFERENCES Products([ProductID]) ,
 	[Time] [datetime] NOT NULL ,
@@ -293,11 +314,12 @@ CREATE TABLE [dbo].[Comment](
 )
 GO
 CREATE TABLE [dbo].[HistoryProducts](
+	HistoryID [int] IDENTITY(1,1)  NOT NULL,
 	ProductID[int] FOREIGN KEY REFERENCES Products(ProductID) NOT NULL,
 	EmployeeID[int] FOREIGN KEY REFERENCES Employees([EmployeeID]) NOT NULL,
 	[Description] [nvarchar](40) NOT NULL,
 	[Time] [datetime] NOT NULL,
-	HistoryID [int] IDENTITY(1,1)  NOT NULL,
+	
 	PRIMARY KEY ([HistoryID])
 )
 

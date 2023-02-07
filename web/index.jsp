@@ -4,6 +4,8 @@
     Author     : LEGION
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header.jsp" %>
 <!-- Carousel Start -->
@@ -110,20 +112,24 @@
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Brands</span></h2>
         <div class="row px-xl-5 pb-3">
             
+            
+            <c:forEach var="brand" items="${List}">
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="">
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                            <img class="img-fluid" src="img/Apple.png" alt="">
+                            <img class="img-fluid" src="img/${brand.picture}" alt="">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>Brand Name</h6>
-                            <small class="text-body">100 Products</small>
+                            
+                            <h6>${brand.brandName}</h6>
+                            <small class="text-body">${brand.quantity} Products</small>
+                            
                         </div>
                     </div>
                 </a>
             </div>
-            
+            </c:forEach>
         </div>
     </div>
     <!-- Categories End -->
