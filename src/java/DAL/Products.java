@@ -10,7 +10,7 @@ package DAL;
  */
 public class Products {
 
-    public Products(int productID, String productName, int brandID, String chip, int ram, String pin, String PhoneScreen, String picture) {
+    public Products(int productID, String productName, int brandID, String chip, int ram, String pin, String PhoneScreen, String picture, float discount) {
         this.productID = productID;
         this.productName = productName;
         this.brandID = brandID;
@@ -19,6 +19,7 @@ public class Products {
         this.pin = pin;
         this.PhoneScreen = PhoneScreen;
         this.picture = picture;
+        this.discount = discount;
     }
 
     public int getProductID() {
@@ -84,6 +85,16 @@ public class Products {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
+    public float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    
     private int productID;
     private String productName;
     private int brandID;
@@ -92,6 +103,7 @@ public class Products {
     private String pin;
     private String PhoneScreen;
     private String picture;
+    private float discount;
     
     
 }

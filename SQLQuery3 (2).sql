@@ -277,7 +277,7 @@ INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (20,2,0.05)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (11,2,0.02)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (22,2,0.2)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (21,2,0.15)
-INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (26,2,0.25)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (26,2,0.1)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (17,2,0.05)
 GO
 CREATE TABLE [dbo].[OrderDetails](

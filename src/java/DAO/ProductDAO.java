@@ -9,43 +9,59 @@ import DAL.DBContext;
 import DAL.Products;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  *
  * @author blabl
  */
 public class ProductDAO extends DBContext{
-   public ArrayList<Products> getProduct(String sql) {
+   public ArrayList<Products> getProductBestSale () {
         ArrayList<Products> list = new ArrayList<>();
         try {
-            
+            Date date=java.util.Calendar.getInstance().getTime();
+            String sql = "select * from SalesDuring as a inner join Discounts as b on a.SaleID=b.SaleID  "
+                    + "inner join Products as c on b.ProductID=c.ProductID";
+           
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                int productID = rs.getInt("ProductID");
-                float unitPrice = rs.getFloat("UnitPrice");
-                String productName = rs.getString("ProductName");
-                int categoryID = rs.getInt("CategoryID");
-                String quantityPerUnit = rs.getString("QuantityPerUnit");
-                int unitsInStock = rs.getInt("UnitsInStock");
-                int unitsOnOrder = rs.getInt("UnitsOnOrder");
-                int reorderLevel = rs.getInt("ReorderLevel");
-                boolean discontinued = rs.getBoolean("Discontinued");
-                int brandID = rs.getInt("BrandID");
-                String chip = rs.getString("Chip");
-                int ram = rs.getInt("Ram");
-                String pin = rs.getString("Pin");
-                String PhoneScreen = rs.getString("PhoneScreen");
-                String picture = rs.getString("Picture");
-                Products product = new Products(productID, productName, brandID, chip, ram, pin, PhoneScreen, picture);
-                list.add(product);
+            while(rs.next()){
+               Date dateS = rs.getDate("StartSale");
+               Date dateE = rs.getDate("EndSale");
+               System.out.println(dateE);
+               if(dateS.before(date) && date.before(dateE)){
+                    int productID = rs.getInt("ProductID");
+                    String productName = rs.getString("ProductName");
+                    int brandID = rs.getInt("BrandID");
+                    String chip = rs.getString("Chip");
+                    int ram = rs.getInt("Ram");
+                    String pin = rs.getString("Pin");
+                    String PhoneScreen = rs.getString("PhoneScreen");
+                    String picture = rs.getString("Picture");
+                    float discount = rs.getFloat("Discount");
+                    Products product = new Products(productID, productName, brandID, chip, ram, pin, PhoneScreen, picture, discount);
+                    list.add(product);
+               }
             }
+            
+            
+           
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
-}
+   public static void main(String[] args) throws ParseException{
+      
+    
+   } 
+}   
