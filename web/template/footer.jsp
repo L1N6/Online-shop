@@ -83,6 +83,23 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+    function searchProductsByName(param){
+        var txtSearch = param.value;
+        $.ajax({
+        type: "get",
+        url: "/searching",
+        data: {
+            txt: txtSearch
+        },
+        success: function (data) {
+            var row = document.getElementById("content");
+            row.innerHTML = data;
+        }
+    });
+    }
+    
+</script>
 </body>
 
 </html>

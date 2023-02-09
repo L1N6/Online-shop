@@ -37,6 +37,7 @@ public class ProductDAO extends DBcontext {
     }
     
     public List<Product> searchProducts(String condition){
+        System.out.println(condition);
         List<Product> listProduct = new ArrayList<Product>();
         Product p = new Product();
         try {

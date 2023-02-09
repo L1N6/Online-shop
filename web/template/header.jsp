@@ -88,7 +88,7 @@
                 <div class="col-lg-4 col-6 text-left">
                     <form action="<c:url value="/searching"/>" method="Post">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for products" name="txtSearch">
+                            <input oninput="searchProductsByName(this)" value="${txtValue}" type="text" class="form-control" placeholder="Search for products" name="txt">
                             <div class="input-group-append">
                                 <button class="input-group-text bg-transparent text-primary">
                                     <i class="fa fa-search"></i>

@@ -124,7 +124,7 @@
 
 
         <!-- Shop Product Start -->
-        <div class="col-lg-9 col-md-8">
+        <div  class="col-lg-9 col-md-8">
             <div class="row pb-3">
                 <div class="col-12 pb-1">
                     <div class="d-flex align-items-center justify-content-between mb-4">
@@ -144,10 +144,10 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <c:forEach var="p" items="${shopListProduct}" >
-                    <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                        <div class="product-item bg-light mb-4">
+                    <div id="content" class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                        <div  class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="img/${p.picture}" alt="">
                                 <div class="product-action">
@@ -205,13 +205,11 @@
                         </ul>
                     </nav>
                 </div>
-
-
-
             </div>
         </div>
         <!-- Shop Product End -->
     </div>
 </div>
+
 <!-- Shop End -->
 <%@include file="template/footer.jsp" %>
