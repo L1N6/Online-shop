@@ -15,7 +15,7 @@
     </c:if>
     <div class="container-fluid mb-3">
         <div class="row px-xl-5">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -24,21 +24,19 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item position-relative active" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/top-06-dien-thoai-chup-anh-dep-cho-tin-do-me-song-ao-thumbnail.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="img/eventsale1.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">+100</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Devices Only For You</p>
+                                    
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="img/s22_ultra.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="img/purplesale.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Super Sale</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">A lot of devices have sale for you</p>
+                                    
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
@@ -56,22 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-            <c:forEach begin="0" end="1" var="product" items="${ListProduct}">
-            
-                <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="img/${product.picture}" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Sale  <fmt:formatNumber maxFractionDigits="2" value="${product.discount*100}"/>%</h6>
-                        <h3 class="text-white mb-3">${product.productName}</h3>
-                        
-                        
-                        <a href="shop.jsp" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
-
-            </c:forEach>    
-            </div>
+           
         </div>
     </div>
     <!-- Carousel End -->
@@ -175,25 +158,7 @@
     <!-- Products End -->
 
 
-    <!-- Offer Start -->
-    <div class="container-fluid pt-5 pb-3">
-        <div class="row px-xl-5">
-            <c:forEach begin="2" end="3" var="product" items="${ListProduct}">
-            <div class="col-md-6">
-                <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="img/${product.picture}" alt="">
-                    <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Sale  <fmt:formatNumber maxFractionDigits="2" value="${product.discount*100}"/>%</h6>
-                        <h3 class="text-white mb-3">${product.productName}</h3>
-                        <a href="shop.jsp" class="btn btn-primary">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-            
-            </c:forEach>
-        </div>
-    </div>
-    <!-- Offer End -->
+ 
 
 
     <!-- Products Start -->

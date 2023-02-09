@@ -4,7 +4,6 @@
  */
 package DAO;
 
-
 import DAL.DBContext;
 import DAL.Products;
 import java.sql.PreparedStatement;
@@ -23,21 +22,22 @@ import java.util.Locale;
  *
  * @author blabl
  */
-public class ProductDAO extends DBContext{
-   public ArrayList<Products> getProductBestSale () {
+public class ProductDAO extends DBContext {
+
+    public ArrayList<Products> getProductBestSale() {
         ArrayList<Products> list = new ArrayList<>();
         try {
-            Date date=java.util.Calendar.getInstance().getTime();
+            Date date = java.util.Calendar.getInstance().getTime();
             String sql = "select * from SalesDuring as a inner join Discounts as b on a.SaleID=b.SaleID  "
                     + "inner join Products as c on b.ProductID=c.ProductID";
-           
+
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-               Date dateS = rs.getDate("StartSale");
-               Date dateE = rs.getDate("EndSale");
-               System.out.println(dateE);
-               if(dateS.before(date) && date.before(dateE)){
+            while (rs.next()) {
+                Date dateS = rs.getDate("StartSale");
+                Date dateE = rs.getDate("EndSale");
+                System.out.println(dateE);
+                if (dateS.before(date) && date.before(dateE)) {
                     int productID = rs.getInt("ProductID");
                     String productName = rs.getString("ProductName");
                     int brandID = rs.getInt("BrandID");
@@ -49,19 +49,22 @@ public class ProductDAO extends DBContext{
                     float discount = rs.getFloat("Discount");
                     Products product = new Products(productID, productName, brandID, chip, ram, pin, PhoneScreen, picture, discount);
                     list.add(product);
-               }
+                }
+                Collections.sort(list, new Comparator<Products>() {
+                    @Override
+                    public int compare(Products s1, Products s2) {
+                        return Float.compare(s2.getDiscount(), s1.getDiscount());
+                    }
+                });
             }
-            
-            
-           
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
-   public static void main(String[] args) throws ParseException{
-      
-    
-   } 
-}   
+
+    public static void main(String[] args) throws ParseException {
+
+    }
+}

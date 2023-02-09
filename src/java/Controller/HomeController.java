@@ -30,15 +30,6 @@ public class HomeController extends HttpServlet{
         
         ArrayList<BrandAndQuantity> brandList = new BrandDAO().getBrands();
         ArrayList<Products> productList = new ProductDAO().getProductBestSale();
-        
-        Collections.sort(productList, new Comparator<Products>() {
-            @Override
-            public int compare(Products s1, Products s2) {
-                return Float.compare(s2.getDiscount(), s1.getDiscount());
-            }
-        });
-       
-        
         req.setAttribute("ListProduct", productList);
         req.setAttribute("List", brandList);
         req.setAttribute("Check", "true");
