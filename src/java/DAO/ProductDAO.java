@@ -16,6 +16,7 @@ import java.util.List;
  * @author LEGION
  */
 public class ProductDAO extends DBcontext {
+    
     public List<Product> getAllProduct(){
         List<Product> listProduct = new ArrayList<Product>();
         Product p = new Product();
@@ -37,11 +38,30 @@ public class ProductDAO extends DBcontext {
     }
     
     public List<Product> searchProducts(String condition){
-        System.out.println(condition);
         List<Product> listProduct = new ArrayList<Product>();
         Product p = new Product();
         try {
             String sql = "select * from Products where ProductName COLLATE SQL_Latin1_General_Cp850_CI_AS like '%'+?+'%'";
+            PreparedStatement ps = getConnection().prepareCall(sql);
+            ps.setString(1, condition);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                int ProductID = rs.getInt("ProductID");
+                String ProductName = rs.getString("ProductName");
+                String Picture = rs.getString("Picture");
+                p = new Product(ProductID, ProductName, Picture);
+                listProduct.add(p);
+            }
+        } catch (Exception e) {
+        }
+        return listProduct;
+    }
+    
+    public List<Product> sortProducts(String condition){
+        List<Product> listProduct = new ArrayList<Product>();
+        Product p = new Product();
+        try {
+            String sql = "select * from Products order";
             PreparedStatement ps = getConnection().prepareCall(sql);
             ps.setString(1, condition);
             ResultSet rs = ps.executeQuery();

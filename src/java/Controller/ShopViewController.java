@@ -25,10 +25,13 @@ public class ShopViewController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("asdadajdwijd");
+        resp.sendRedirect("/shop");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
         List<Product> listProduct = new ProductDAO().getAllProduct();
         int currentPage;
             String a = req.getParameter("currentPage");
