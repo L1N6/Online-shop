@@ -4,8 +4,16 @@
         <servlet-name>Shop</servlet-name>
         <servlet-class>Controller.ShopController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendEmailServlet</servlet-name>
+        <servlet-class>Controller.SendEmailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Shop</servlet-name>
         <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendEmailServlet</servlet-name>
+        <url-pattern>/SendEmailServlet</url-pattern>
     </servlet-mapping>
 </web-app>
