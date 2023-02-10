@@ -136,9 +136,9 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="<c:url value="/shop"/>">Latest</a>
-                                    <a class="dropdown-item" href="<c:url value="/shop"/>">Popularity</a>
-                                    <a class="dropdown-item" href="<c:url value="/shop"/>">Best Rating</a>
+                                    <a class="dropdown-item" href="<c:url value="/shop"><c:param name="sort" value="latest"/></c:url>">Latest</a>
+                                    <a class="dropdown-item" href="<c:url value="/shop"><c:param name="sort" value="popularity"/></c:url>">Popularity</a>
+                                    <a class="dropdown-item" href="<c:url value="/shop"><c:param name="sort" value="bestRating"/></c:url>">Best Rating</a>
                                 </div>
                             </div>
                         </div>
