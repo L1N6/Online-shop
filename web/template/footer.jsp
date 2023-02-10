@@ -88,7 +88,7 @@
         var txtSearch = param.value;
         $.ajax({
         type: "get",
-        url: "/searching",
+        url: "/Project_Swp/searching",
         data: {
             txt: txtSearch
         },

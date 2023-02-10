@@ -147,6 +147,7 @@
                 
                 <c:forEach var="p" items="${shopListProduct}" >
                     <div id="content" class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                        <div >
                         <div  class="product-item bg-light mb-4">
                             <div class="product-img position-relative overflow-hidden">
                                 <img class="img-fluid w-100" src="img/${p.picture}" alt="">
@@ -172,6 +173,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </c:forEach>
                 <div class="col-12">

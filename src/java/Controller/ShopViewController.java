@@ -42,7 +42,6 @@ public class ShopViewController extends HttpServlet {
         numberOfPage = pcp.getTotalPageOfResult(listProduct, PaginationObject.getNumberOfRowEachPage());
         req.getSession().setAttribute("currentPage", currentPage);
         req.setAttribute("numberOfPage", numberOfPage);
-        System.out.println(listProduct.size());
         req.setAttribute("shopListProduct", getProduct);
         req.getRequestDispatcher("shop.jsp").forward(req, resp);
     }
