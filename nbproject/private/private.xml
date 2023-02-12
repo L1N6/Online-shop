@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/ShopMobile/Online-shop/web/img/mobell.png</file>
-            <file>file:/E:/ShopMobile/Online-shop/src/java/DAL/Products.java</file>
-            <file>file:/E:/ShopMobile/Online-shop/src/java/DAL/DBContext.java</file>
-            <file>file:/E:/ShopMobile/Online-shop/src/java/DAL/NewClass.java</file>
-            <file>file:/E:/ShopMobile/Online-shop/src/java/Controller/HomeController.java</file>
-            <file>file:/E:/ShopMobile/Online-shop/src/java/DAO/ProductDAO.java</file>
+            <file>file:/E:/ShopMobile/Online-shop/web/s_css/style.scss</file>
             <file>file:/E:/ShopMobile/Online-shop/web/index.jsp</file>
-            <file>file:/E:/ShopMobile/Online-shop/src/java/Controller/NewClass.java</file>
-            <file>file:/E:/ShopMobile/Online-shop/src/java/DAO/BrandDAO.java</file>
+            <file>file:/E:/ShopMobile/Online-shop/web/css/style.css</file>
+            <file>file:/E:/ShopMobile/Online-shop/web/css/style.min.css</file>
         </group>
     </open-files>
 </project-private>
