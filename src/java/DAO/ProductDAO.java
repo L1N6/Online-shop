@@ -61,9 +61,8 @@ public class ProductDAO extends DBcontext {
         List<Product> listProduct = new ArrayList<Product>();
         Product p = new Product();
         try {
-            String sql = "select * from Products order";
+            String sql = "select * from Products order by ProductID desc";
             PreparedStatement ps = getConnection().prepareCall(sql);
-            ps.setString(1, condition);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {                
                 int ProductID = rs.getInt("ProductID");

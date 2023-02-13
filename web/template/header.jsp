@@ -143,7 +143,7 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="index.jsp" class="nav-item nav-link">Home</a>
-                                <a href="<c:url value="/shop"/>" class="nav-item nav-link active">Shop</a>
+                                <a href="<c:url value="/shop"><c:param name="choice" value="shop"/></c:url>" class="nav-item nav-link active">Shop</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                     <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
