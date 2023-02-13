@@ -1,8 +1,8 @@
 ﻿USE [master]
 GO
-CREATE DATABASE [SHOP_DB_Test_5]
+CREATE DATABASE [SHOP_DB_Test_2]
 GO
-USE [SHOP_DB_Test_5]
+USE [SHOP_DB_Test_2]
 GO
 CREATE TABLE [dbo].[Employees](
 	[EmployeeID] [int] IDENTITY(1,1) NOT NULL,
@@ -136,14 +136,15 @@ GO
 	[OperatingSystem] [nvarchar](100) NOT NULL,
 	[PhoneScreen] [nvarchar] (100) NOT NULL,
 	[Picture] [nvarchar] (100) NOT NULL,
+	[Price] [money] NOT NULL 
 	PRIMARY KEY ([ProductID])
 )
 GO
 --brand1 APLE
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES ('iPhone 11',1,'Apple A13 Bionic',4,'3110 mAh,18 W','iOS 15','IPS LCD,6.1",Liquid Retina','iphone-11-(88).jpg')
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES ('iPhone 13 Pro Max',1, 'Apple A15 Bionic',6,'4352 mAh,20 W','iOS 15','OLED,6.7",Super Retina XDR ','iphone-13-pro-max-1tb-(38).jpg')                   
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES ('iPhone 13 Pro',1, 'Apple A15 Bionic',6,'3095 mAh,20 W','iOS 15','OLED,6.1",Super Retina XDR','iphone-13-pro-1tb-(38).jpg')
-INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES ('iPhone 14 Pro Max',1, 'Apple A16 Bionic',6,'4323 mAh,20 W','iOS 16','OLED,6.7",Super Retina XDR','iphone-14-pro-max-(40).jpg')
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture,[Price]) VALUES ('iPhone 11',1,'Apple A13 Bionic',4,'3110 mAh,18 W','iOS 15','IPS LCD,6.1",Liquid Retina','iphone-11-(88).jpg',11490000)
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture,[Price]) VALUES ('iPhone 13 Pro Max',1, 'Apple A15 Bionic',6,'4352 mAh,20 W','iOS 15','OLED,6.7",Super Retina XDR ','iphone-13-pro-max-1tb-(38).jpg',34990000)                   
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture,[Price]) VALUES ('iPhone 13 Pro',1, 'Apple A15 Bionic',6,'3095 mAh,20 W','iOS 15','OLED,6.1",Super Retina XDR','iphone-13-pro-1tb-(38).jpg',29990000)
+INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture,[Price]) VALUES ('iPhone 14 Pro Max',1, 'Apple A16 Bionic',6,'4323 mAh,20 W','iOS 16','OLED,6.7",Super Retina XDR','iphone-14-pro-max-(40).jpg',29990000)
 --brand2 SAMSUNG
 INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES ('Samsung Galaxy Z Flip4',2,'Snapdragon 8+ Gen 1',8,'3700 mAh,25 W','Android 12',N'Chính: Dynamic AMOLED 2X, Phụ: Super AMOLEDChính 6.7" & Phụ 1.9"Full HD+','samsung-galaxy-z-flip4-(12).jpg')
 INSERT [dbo].[Products] ( [ProductName], [BrandID], [Chip],[Ram],[Pin],[OperatingSystem],[PhoneScreen],Picture) VALUES ('Samsung Galaxy S22 Ultra',2,'Snapdragon 8+ Gen 1',8,'5000 mAh,45 W','Android 12',N'Dynamic AMOLED 2X6.8"Quad HD+ (2K+)','samsung-galaxy-s22-ultra-(20).jpg')
@@ -246,21 +247,24 @@ CREATE TABLE [dbo].[OrderHistory](
 GO
 INSERT [dbo].[OrderHistory] ( EmployeeID, [Description], [Time],[OrderID]) VALUES (1,'Da Duyet',CAST(N'2023-02-02T00:00:00.000' AS DateTime),1)
 GO
-CREATE TABLE [dbo].[SalesDuring](
+CREATE TABLE [dbo].[Events](
 	SaleID[int] IDENTITY(1,1) NOT NULL,
+	[NameSale] [nvarchar](40) NOT NULL,
+	Picture [nvarchar](40) NOT NULL,
 	StartSale[datetime] NOT NULL,
 	EndSale[datetime] NULL,
 	PRIMARY KEY ([SaleID])
 )
 GO
-INSERT [dbo].[SalesDuring] (  StartSale, EndSale) VALUES (CAST(N'2023-01-25T00:00:00.000' AS DateTime),CAST(N'2023-02-01T00:00:00.000' AS DateTime))
-INSERT [dbo].[SalesDuring] (  StartSale, EndSale) VALUES (CAST(N'2023-02-01T00:00:00.000' AS DateTime),CAST(N'2023-02-20T00:00:00.000' AS DateTime))
+INSERT [dbo].[Events] (  StartSale, EndSale,[NameSale],Picture) VALUES (CAST(N'2023-01-10T00:00:00.000' AS DateTime),CAST(N'2023-04-01T00:00:00.000' AS DateTime),'SummerSale','eventsale1.jpg')
+INSERT [dbo].[Events] (  StartSale, EndSale,[NameSale],Picture) VALUES (CAST(N'2023-02-14T00:00:00.000' AS DateTime),CAST(N'2023-04-14T00:00:00.000' AS DateTime),'PurpleRoseSale','eventsale2.jpg')
+INSERT [dbo].[Events] (  StartSale, EndSale,[NameSale],Picture) VALUES (CAST(N'2023-01-01T00:00:00.000' AS DateTime),CAST(N'2023-04-01T00:00:00.000' AS DateTime),'BestSale','salevent3.jpg')
 
 GO
 CREATE TABLE [dbo].[Discounts](
 	DiscountID[int] IDENTITY(1,1) NOT NULL,
 	[ProductID] [int] FOREIGN KEY REFERENCES Products([ProductID]) NOT NULL,
-	SaleID[int] FOREIGN KEY REFERENCES [SalesDuring]([SaleID]) NOT NULL,
+	SaleID[int] FOREIGN KEY REFERENCES [Events]([SaleID]) NOT NULL,
 	Discount[real] NOT NULL,
 	
 
@@ -269,7 +273,6 @@ CREATE TABLE [dbo].[Discounts](
 GO
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (1,2,0.2)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (1,1,0.1)
-INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (1,2,0.2)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (14,2,0.15)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (9,2,0.21)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (20,2,0.05)
@@ -277,8 +280,9 @@ INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (20,2,0.05)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (11,2,0.02)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (22,2,0.2)
 INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (21,2,0.15)
-INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (26,2,0.1)
-INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (17,2,0.05)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (27,1,0.1)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (19,1,0.05)
+INSERT [dbo].[Discounts] (  ProductID, SaleID,Discount) VALUES (18,1,0.05)
 GO
 CREATE TABLE [dbo].[OrderDetails](
 	OrderDetailID [int] IDENTITY(1,1) NOT NULL,
@@ -319,8 +323,9 @@ CREATE TABLE [dbo].[HistoryProducts](
 	EmployeeID[int] FOREIGN KEY REFERENCES Employees([EmployeeID]) NOT NULL,
 	[Description] [nvarchar](40) NOT NULL,
 	[Time] [datetime] NOT NULL,
-	
 	PRIMARY KEY ([HistoryID])
+
 )
+
 
 

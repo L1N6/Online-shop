@@ -6,7 +6,7 @@ package DAO;
 
 import DAL.BrandAndQuantity;
 import DAL.DBContext;
-import DAL.Products;
+import DAL.ProductDiscountUnitOnOrder;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;

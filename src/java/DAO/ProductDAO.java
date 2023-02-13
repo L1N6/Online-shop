@@ -5,7 +5,7 @@
 package DAO;
 
 import DAL.DBContext;
-import DAL.Products;
+import DAL.ProductDiscountUnitOnOrder;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
@@ -24,11 +24,11 @@ import java.util.Locale;
  */
 public class ProductDAO extends DBContext {
 
-    public ArrayList<Products> getProductBestSale() {
-        ArrayList<Products> list = new ArrayList<>();
+    public ArrayList<ProductDiscountUnitOnOrder> getProductBestSale() {
+        ArrayList<ProductDiscountUnitOnOrder> list = new ArrayList<>();
         try {
             Date date = java.util.Calendar.getInstance().getTime();
-            String sql = "select * from SalesDuring as a inner join Discounts as b on a.SaleID=b.SaleID  "
+            String sql = "select c.ProductID,c.ProductName,c.Picture,b.Discount,a.StartSale,a.EndSale from [Events] as a inner join Discounts as b on a.SaleID=b.SaleID  "
                     + "inner join Products as c on b.ProductID=c.ProductID";
 
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -36,23 +36,18 @@ public class ProductDAO extends DBContext {
             while (rs.next()) {
                 Date dateS = rs.getDate("StartSale");
                 Date dateE = rs.getDate("EndSale");
-                System.out.println(dateE);
+               
                 if (dateS.before(date) && date.before(dateE)) {
                     int productID = rs.getInt("ProductID");
                     String productName = rs.getString("ProductName");
-                    int brandID = rs.getInt("BrandID");
-                    String chip = rs.getString("Chip");
-                    int ram = rs.getInt("Ram");
-                    String pin = rs.getString("Pin");
-                    String PhoneScreen = rs.getString("PhoneScreen");
                     String picture = rs.getString("Picture");
                     float discount = rs.getFloat("Discount");
-                    Products product = new Products(productID, productName, brandID, chip, ram, pin, PhoneScreen, picture, discount);
+                    ProductDiscountUnitOnOrder product = new ProductDiscountUnitOnOrder(productID, productName, picture, discount);
                     list.add(product);
                 }
-                Collections.sort(list, new Comparator<Products>() {
+                Collections.sort(list, new Comparator<ProductDiscountUnitOnOrder>() {
                     @Override
-                    public int compare(Products s1, Products s2) {
+                    public int compare(ProductDiscountUnitOnOrder s1, ProductDiscountUnitOnOrder s2) {
                         return Float.compare(s2.getDiscount(), s1.getDiscount());
                     }
                 });
@@ -65,6 +60,10 @@ public class ProductDAO extends DBContext {
     }
 
     public static void main(String[] args) throws ParseException {
-
+                    ArrayList<ProductDiscountUnitOnOrder> ListSale = new ProductDAO().getProductBestSale();
+                    for (ProductDiscountUnitOnOrder productDiscountUnitOnOrder : ListSale) {
+                        System.out.println("ds");
+            
+        }
     }
 }

@@ -8,16 +8,39 @@ package DAL;
  *
  * @author blabl
  */
-public class Products {
+public class ProductDiscountUnitOnOrder {
 
-    public Products(int productID, String productName, int brandID, String chip, int ram, String pin, String PhoneScreen, String picture, float discount) {
+    
+    private int productID;
+    private String productName;
+    private int brandID;
+    private String chip;
+    private int ram;
+    private String pin;
+    private String PhoneScreen;
+    private String picture;
+    private float discount;
+    private int unitOnstoke;
+    private int unitOnOrder;
+    private float price;
+
+    public ProductDiscountUnitOnOrder(int productID, String productName, String picture, int unitOnOrder) {
         this.productID = productID;
         this.productName = productName;
-        this.brandID = brandID;
-        this.chip = chip;
-        this.ram = ram;
-        this.pin = pin;
-        this.PhoneScreen = PhoneScreen;
+        this.picture = picture;
+        this.unitOnOrder = unitOnOrder;
+    }
+
+    public ProductDiscountUnitOnOrder(int productID, String productName) {
+        this.productID = productID;
+        this.productName = productName;
+    }
+
+   
+
+    public ProductDiscountUnitOnOrder(int productID, String productName, String picture, float discount) {
+        this.productID = productID;
+        this.productName = productName;
         this.picture = picture;
         this.discount = discount;
     }
@@ -94,16 +117,32 @@ public class Products {
         this.discount = discount;
     }
 
+    public int getUnitOnstoke() {
+        return unitOnstoke;
+    }
+
+    public void setUnitOnstoke(int unitOnstoke) {
+        this.unitOnstoke = unitOnstoke;
+    }
+
+    public int getUnitOnOrder() {
+        return unitOnOrder;
+    }
+
+    public void setUnitOnOrder(int unitOnOrder) {
+        this.unitOnOrder = unitOnOrder;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
     
-    private int productID;
-    private String productName;
-    private int brandID;
-    private String chip;
-    private int ram;
-    private String pin;
-    private String PhoneScreen;
-    private String picture;
-    private float discount;
+    
+    
     
     
 }

@@ -5,8 +5,10 @@
 package Controller;
 
 import DAL.BrandAndQuantity;
-import DAL.Products;
+import DAL.Event;
+import DAL.ProductDiscountUnitOnOrder;
 import DAO.BrandDAO;
+import DAO.EventDAO;
 import DAO.ProductDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -29,8 +31,11 @@ public class HomeController extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         ArrayList<BrandAndQuantity> brandList = new BrandDAO().getBrands();
-        ArrayList<Products> productList = new ProductDAO().getProductBestSale();
-        req.setAttribute("ListProduct", productList);
+        ArrayList<ProductDiscountUnitOnOrder> ListSale = new ProductDAO().getProductBestSale();
+        ArrayList<Event> events = new EventDAO().getEvents();
+       
+        req.setAttribute("Events", events);
+        req.setAttribute("ListSale", ListSale);
         req.setAttribute("List", brandList);
         req.setAttribute("Check", "true");
         req.getRequestDispatcher("index.jsp").forward(req, resp);
