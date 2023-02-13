@@ -4,6 +4,8 @@
  */
 package Controller;
 
+import DAL.Email;
+import DAL.SendEmail;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,15 +33,16 @@ public class SendEmailServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SendEmailServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SendEmailServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            String message = request.getParameter("message");
+
+            SendEmail sm = new SendEmail();
+
+            Email mail = new Email(name, email, message);
+            
+            boolean confirmMail = sm.sendEmail(name, email, "SendMailContact", message);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 
