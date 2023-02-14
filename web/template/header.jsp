@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,13 +86,13 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-6 text-left">
-                    <form action="">
+                    <form action="<c:url value="/searching"/>" method="Post">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for products">
+                            <input value="${txtValue}" type="text" class="form-control" placeholder="Search for products" name="txt">
                             <div class="input-group-append">
-                                <span class="input-group-text bg-transparent text-primary">
+                                <button class="input-group-text bg-transparent text-primary">
                                     <i class="fa fa-search"></i>
-                                </span>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -142,7 +143,7 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="index.jsp" class="nav-item nav-link">Home</a>
-                                <a href="shop.jsp" class="nav-item nav-link active">Shop</a>
+                                <a href="<c:url value="/shop"><c:param name="choice" value="shop"/></c:url>" class="nav-item nav-link active">Shop</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                     <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
